@@ -1,0 +1,5 @@
+azure-functions
+haikunator
+applicationinsights
+azure-cli-core
+azure-mgmt-resource

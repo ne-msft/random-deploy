@@ -1,0 +1,18 @@
+{
+  "scriptFile": "randomdeploy.py",
+  "bindings": [
+    {
+      "name": "mytimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */10 * * * *"
+    },
+    {
+      "name": "template",
+      "direction": "in",
+      "type": "blob",
+      "path": "templates/azuredeploy-storage.json",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
