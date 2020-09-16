@@ -3,9 +3,10 @@
 RandomDeploy and RandomDeployCleanup are two Azure Functions which can be used to deploy an ARM-Template with randomly generated values.
 All values are taken from the parameter section.
 
-Two environment variables are used for configuration:
+These environment variables are used for configuration:
 - RANDOM_DEPLOY_SUBSCRIPTION_ID - The subscription ID to be used for deployments
 - RANDOM_DEPLOY_LIFETIME - Time to live in seconds for a deployment, this will be used to tag the resource group with a "DeleteBy"-tag and RandomDeployCleanup will delete the whole resource group when this time has passed
+- TemplatePath - Path on the AzureWebJobsStorage which contains the template to be deployed
 
 The function needs to have a MSI assigned with permissions to deploy the templates. 
 
@@ -26,7 +27,7 @@ This is a timer triggered function, which takes a template as a second input.
       "name": "template",
       "direction": "in",
       "type": "blob",
-      "path": "templates/azuredeploy-storage.json",
+      "path": "%TemplatePath%",
       "connection": "AzureWebJobsStorage"
     }
   ]

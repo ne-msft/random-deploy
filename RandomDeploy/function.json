@@ -11,7 +11,7 @@
       "name": "template",
       "direction": "in",
       "type": "blob",
-      "path": "templates/azuredeploy-storage.json",
+      "path": "%TemplatePath%",
       "connection": "AzureWebJobsStorage"
     }
   ]
